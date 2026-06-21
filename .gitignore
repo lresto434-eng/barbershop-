@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+# docs is committed (GitHub Pages build output)
 *.local
 
 # Editor directories and files
