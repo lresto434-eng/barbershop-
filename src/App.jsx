@@ -11,19 +11,20 @@ import BookingModal from "./components/BookingModal";
 
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [lang, setLang] = useState("el");
 
   return (
     <>
-      <Header onBook={() => setModalOpen(true)} />
+      <Header onBook={() => setModalOpen(true)} lang={lang} onToggleLang={() => setLang(l => l === "el" ? "en" : "el")} />
       <main>
-        <Hero onBook={() => setModalOpen(true)} />
-        <About />
-        <Services />
-        <Gallery />
-        <HoursLocation />
-        <Contact onBook={() => setModalOpen(true)} />
+        <Hero onBook={() => setModalOpen(true)} lang={lang} />
+        <About lang={lang} />
+        <Services lang={lang} />
+        <Gallery lang={lang} />
+        <HoursLocation lang={lang} />
+        <Contact onBook={() => setModalOpen(true)} lang={lang} />
       </main>
-      <BookingModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+      <BookingModal isOpen={modalOpen} onClose={() => setModalOpen(false)} lang={lang} />
     </>
   );
 }

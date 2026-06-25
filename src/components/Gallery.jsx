@@ -6,18 +6,25 @@ const GalleryIcon = () => (
   </svg>
 );
 
-const items = [
-  "Shop Photo", "Haircut", "Beard Work", "The Chair", "Detail", "Hot Shave"
-];
+const items = {
+  el: ["Φωτογραφία Καταστήματος", "Κούρεμα", "Δουλειά με Γένια", "Η Καρέκλα", "Λεπτομέρεια", "Ζεστό Ξύρισμα"],
+  en: ["Shop Photo", "Haircut", "Beard Work", "The Chair", "Detail", "Hot Shave"],
+};
 
-export default function Gallery() {
+const t = {
+  el: { label: "Το Κατάστημα", heading: "Γκαλερί" },
+  en: { label: "The Shop", heading: "Gallery" },
+};
+
+export default function Gallery({ lang }) {
+  const tx = t[lang];
   return (
     <section id="gallery">
       <div className="inner">
-        <div className="section-label">The Shop</div>
-        <h2 className="section-title">Gallery</h2>
+        <div className="section-label">{tx.label}</div>
+        <h2 className="section-title">{tx.heading}</h2>
         <div className="gallery-grid">
-          {items.map((label) => (
+          {items[lang].map((label) => (
             <div className="gallery-item" key={label}>
               <div className="gallery-placeholder">
                 <GalleryIcon />

@@ -1,31 +1,54 @@
-export default function HoursLocation() {
+const t = {
+  el: {
+    label: "Βρείτε Μας",
+    heading: <>Ωράριο &amp;<br />Τοποθεσία</>,
+    hoursTitle: "Ώρες Λειτουργίας",
+    days: [
+      { day: "Δευτέρα", closed: true },
+      { day: "Τρίτη – Παρασκευή", time: "10:00–14:00 & 18:00–21:00" },
+      { day: "Σάββατο", time: "10:00–16:00" },
+      { day: "Κυριακή", closed: true },
+    ],
+    closed: "Κλειστά",
+    addrLabel: "Διεύθυνση",
+  },
+  en: {
+    label: "Find Us",
+    heading: <>Hours &amp;<br />Location</>,
+    hoursTitle: "Opening Hours",
+    days: [
+      { day: "Monday", closed: true },
+      { day: "Tuesday – Friday", time: "10:00–14:00 & 18:00–21:00" },
+      { day: "Saturday", time: "10:00–16:00" },
+      { day: "Sunday", closed: true },
+    ],
+    closed: "Closed",
+    addrLabel: "Address",
+  },
+};
+
+export default function HoursLocation({ lang }) {
+  const tx = t[lang];
   return (
     <section id="hours">
       <div className="inner">
-        <div className="section-label">Find Us</div>
-        <h2 className="section-title">Hours &amp;<br />Location</h2>
+        <div className="section-label">{tx.label}</div>
+        <h2 className="section-title">{tx.heading}</h2>
         <div className="hours-layout">
           <div>
             <div className="hours-card">
-              <h3>Opening Hours</h3>
-              <div className="hours-row">
-                <span className="hours-day">Monday</span>
-                <span className="hours-closed">Closed</span>
-              </div>
-              <div className="hours-row">
-                <span className="hours-day">Tuesday – Friday</span>
-                <span className="hours-time">10:00–14:00 &amp; 18:00–21:00</span>
-              </div>
-              <div className="hours-row">
-                <span className="hours-day">Saturday</span>
-                <span className="hours-time">10:00–16:00</span>
-              </div>
-              <div className="hours-row">
-                <span className="hours-day">Sunday</span>
-                <span className="hours-closed">Closed</span>
-              </div>
+              <h3>{tx.hoursTitle}</h3>
+              {tx.days.map(d => (
+                <div className="hours-row" key={d.day}>
+                  <span className="hours-day">{d.day}</span>
+                  {d.closed
+                    ? <span className="hours-closed">{tx.closed}</span>
+                    : <span className="hours-time">{d.time}</span>
+                  }
+                </div>
+              ))}
               <div className="address-block">
-                <div className="addr-label">Address</div>
+                <div className="addr-label">{tx.addrLabel}</div>
                 <p>Aristidou 3<br />Kalamaria 551 34, Thessaloniki</p>
                 <a href="tel:+302316022223">+30 231 602 2223</a>
               </div>
