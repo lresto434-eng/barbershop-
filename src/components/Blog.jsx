@@ -70,8 +70,12 @@ export default function Blog({ lang }) {
                   <span className="blog-card-category">{post.category}</span>
                   <span className="blog-card-date">{formatDate(post.published_at, lang)}</span>
                 </div>
-                <h3 className="blog-card-title">{post.title}</h3>
-                <p className="blog-card-summary">{post.summary}</p>
+                <h3 className="blog-card-title">
+                  {lang === "en" && post.title_en ? post.title_en : post.title}
+                </h3>
+                <p className="blog-card-summary">
+                  {lang === "en" && post.summary_en ? post.summary_en : post.summary}
+                </p>
               </div>
             </div>
           ))}
