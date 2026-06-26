@@ -8,6 +8,7 @@ import Gallery from "./components/Gallery";
 import HoursLocation from "./components/HoursLocation";
 import Contact from "./components/Contact";
 import BookingModal from "./components/BookingModal";
+import Blog from "./components/Blog";
 
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -21,6 +22,7 @@ export default function App() {
         <About lang={lang} />
         <Services lang={lang} />
         <Gallery lang={lang} />
+        <Blog lang={lang} />
         <HoursLocation lang={lang} />
         <Contact onBook={() => setModalOpen(true)} lang={lang} />
       </main>

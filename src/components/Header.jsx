@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 const t = {
-  el: { about: "Σχετικά", services: "Υπηρεσίες", gallery: "Γκαλερί", hours: "Ωράριο", contact: "Επικοινωνία", book: "Ραντεβού", bookNow: "Κλείσε Τώρα" },
-  en: { about: "About", services: "Services", gallery: "Gallery", hours: "Hours", contact: "Contact", book: "Book", bookNow: "Book Now" },
+  el: { about: "Σχετικά", services: "Υπηρεσίες", gallery: "Γκαλερί", blog: "Blog", hours: "Ωράριο", contact: "Επικοινωνία", book: "Ραντεβού", bookNow: "Κλείσε Τώρα" },
+  en: { about: "About", services: "Services", gallery: "Gallery", blog: "Blog", hours: "Hours", contact: "Contact", book: "Book", bookNow: "Book Now" },
 };
 
 export default function Header({ onBook, lang, onToggleLang }) {
@@ -21,6 +21,7 @@ export default function Header({ onBook, lang, onToggleLang }) {
         <a href="#about" onClick={closeNav}>{tx.about}</a>
         <a href="#services" onClick={closeNav}>{tx.services}</a>
         <a href="#gallery" onClick={closeNav}>{tx.gallery}</a>
+        <a href="#blog" onClick={closeNav}>{tx.blog}</a>
         <a href="#hours" onClick={closeNav}>{tx.hours}</a>
         <a href="#contact" onClick={closeNav}>{tx.contact}</a>
         <button type="button" className="nav-book-btn" onClick={() => { closeNav(); onBook(); }}>{tx.book}</button>
