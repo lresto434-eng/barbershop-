@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -61,7 +62,7 @@ export default function Blog({ lang }) {
 
         <div className="blog-grid">
           {posts.map((post) => (
-            <div className="blog-card" key={post.id}>
+            <Link className="blog-card" key={post.id} to={`/blog/${post.slug}`}>
               {post.cover_image && (
                 <img src={post.cover_image} alt={post.title} className="blog-card-img" />
               )}
@@ -77,7 +78,7 @@ export default function Blog({ lang }) {
                   {lang === "en" && post.summary_en ? post.summary_en : post.summary}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
