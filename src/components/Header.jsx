@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const t = {
   el: { about: "Σχετικά", services: "Υπηρεσίες", gallery: "Γκαλερί", blog: "Blog", hours: "Ωράριο", contact: "Επικοινωνία", book: "Ραντεβού", bookNow: "Κλείσε Τώρα" },
@@ -7,23 +8,36 @@ const t = {
 
 export default function Header({ onBook, lang, onToggleLang }) {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
   const tx = t[lang];
 
   function closeNav() { setOpen(false); }
 
+  function goToSection(e, id) {
+    e.preventDefault();
+    closeNav();
+    if (location.pathname === "/") {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }), 50);
+    }
+  }
+
   return (
     <header>
-      <a className="logo" href="#">
+      <a className="logo" href="/" onClick={(e) => { e.preventDefault(); navigate("/"); }}>
         <span className="logo-top">Old Fashioned</span>
         <span className="logo-bottom">Barbershop</span>
       </a>
       <nav id="navLinks" className={open ? "open" : ""}>
-        <a href="#about" onClick={closeNav}>{tx.about}</a>
-        <a href="#services" onClick={closeNav}>{tx.services}</a>
-        <a href="#gallery" onClick={closeNav}>{tx.gallery}</a>
-        <a href="#blog" onClick={closeNav}>{tx.blog}</a>
-        <a href="#hours" onClick={closeNav}>{tx.hours}</a>
-        <a href="#contact" onClick={closeNav}>{tx.contact}</a>
+        <a href="#about" onClick={(e) => goToSection(e, "about")}>{tx.about}</a>
+        <a href="#services" onClick={(e) => goToSection(e, "services")}>{tx.services}</a>
+        <a href="#gallery" onClick={(e) => goToSection(e, "gallery")}>{tx.gallery}</a>
+        <a href="#blog" onClick={(e) => goToSection(e, "blog")}>{tx.blog}</a>
+        <a href="#hours" onClick={(e) => goToSection(e, "hours")}>{tx.hours}</a>
+        <a href="#contact" onClick={(e) => goToSection(e, "contact")}>{tx.contact}</a>
         <button type="button" className="nav-book-btn" onClick={() => { closeNav(); onBook(); }}>{tx.book}</button>
       </nav>
       <div className="header-right">
