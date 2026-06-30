@@ -7,11 +7,10 @@ const t = {
     note: "Οι τιμές είναι ενδεικτικές. Για περισσότερες πληροφορίες, τηλεφωνήστε μας.",
     services: [
       { name: "Ανδρικό Κούρεμα", desc: "Κούρεμα με ψαλίδι ή μηχανή, φινίρισμα με στυλ", price: "€12" },
-      { name: "Παιδικό Κούρεμα", desc: "Κάτω από 12 ετών", price: "€8" },
-      { name: "Ξύρισμα Κεφαλής", desc: "Πλήρες ξύρισμα με ζεστή πετσέτα", price: "€15" },
-      { name: "Τακτοποίηση Γενιών", desc: "Σχηματισμός, περίγραμμα και ορισμός", price: "€8" },
-      { name: "Μαλλιά & Γένια", desc: "Πλήρες κούρεμα και περιποίηση γενιών", price: "€18" },
-      { name: "Ξύρισμα με Ζεστή Πετσέτα", desc: "Παραδοσιακό ξύρισμα με ξυράφι", price: "€20" },
+      { name: "Παιδικό & Τρίτης Ηλικίας", desc: "Ειδική τιμή για παιδιά και ηλικιωμένους", price: "€9" },
+      { name: "Λούσιμο Μαλλιών", desc: "Χαλαρωτικό λούσιμο με ποιοτικά προϊόντα", price: "€3" },
+      { name: "Τακτοποίηση Γενιών", desc: "Σχηματισμός, περίγραμμα και ορισμός", price: "€5" },
+      { name: "Παραδοσιακό Ξύρισμα με Ξυράφι", desc: "Κλασικό ξύρισμα με ευθύ ξυράφι", price: "€10" },
     ],
   },
   en: {
@@ -22,11 +21,10 @@ const t = {
     note: "Prices are indicative. For more information, give us a call.",
     services: [
       { name: "Men's Haircut", desc: "Scissor or clipper cut, styled to finish", price: "€12" },
-      { name: "Kids Haircut", desc: "Under 12 years old", price: "€8" },
-      { name: "Head Shave", desc: "Full head razor shave with hot towel", price: "€15" },
-      { name: "Beard Trim", desc: "Shaped, edged and defined", price: "€8" },
-      { name: "Hair & Beard", desc: "Full cut plus beard treatment", price: "€18" },
-      { name: "Hot Towel Shave", desc: "Traditional straight razor shave", price: "€20" },
+      { name: "Kids' & Seniors' Haircut", desc: "Special rate for children and seniors", price: "€9" },
+      { name: "Hair Wash", desc: "Relaxing wash with quality products", price: "€3" },
+      { name: "Beard Trim", desc: "Shaped, edged and defined", price: "€5" },
+      { name: "Traditional Straight Razor Shave", desc: "Classic straight razor shave", price: "€10" },
     ],
   },
 };
